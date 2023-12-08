@@ -1,0 +1,12 @@
+.card {
+  padding: 3rem;
+  background-color: transparent;
+}
+
+.postWrapper {
+  &:hover {
+    background-color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+  }
+  border-radius: var(--paper-radius, var(--mantine-radius-default));
+  border: var(--_paper-border, none);
+}
