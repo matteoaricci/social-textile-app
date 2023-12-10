@@ -25,17 +25,19 @@ type PostProps = {
 function Post({ post }: PostProps) {
   const { title, body, author } = post;
   return (
-    <Box className={classes.postWrapper}>
-      <Text>{title}</Text>
-      <Card className={classes.card} shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section>{body}</Card.Section>
-        <Card.Section>
-          <Text ta="right" size="lg">
-            {author}
-          </Text>
-        </Card.Section>
-      </Card>
-    </Box>
+    <Card className={classes.card} shadow="sm" padding="lg" radius="md" withBorder>
+      <Card.Section mb="sm" withBorder py="xs" component="h2">
+        {title}
+      </Card.Section>
+      <Card.Section withBorder pb="sm">
+        {body}
+      </Card.Section>
+      <Card.Section pt='sm'>
+        <Text ta="right" size="md">
+          {author}
+        </Text>
+      </Card.Section>
+    </Card>
   );
 }
 
