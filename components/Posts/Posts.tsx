@@ -4,6 +4,7 @@ import { Flex, Card, Stack, Text, Button } from '@mantine/core';
 
 import classes from './Posts.module.css';
 import { useState } from 'react';
+import { IconArrowBigUpLines, IconArrowBigDownLines } from '@tabler/icons-react';
 
 export default function Posts() {
   return (
@@ -48,9 +49,19 @@ function Post({ post }: PostProps) {
       <Card.Section pt="sm">
         <Flex justify="space-between">
           <Flex align="center" gap="sm">
-            <Button color={rated === 1 ? "cyan" : "gray"} onClick={() => handleRatingOnClick(1)}>Up</Button>
-            <Text>{Math.max(0, upvotes - downvotes + rated)}</Text>
-            <Button color={rated === -1 ? "red" : "gray"} onClick={() => handleRatingOnClick(-1)}>Down</Button>
+            <IconArrowBigUpLines
+              className={classes.voteIcons}
+              fill={rated === 1 ? 'var(--mantine-color-blue-filled)' : 'none'}
+              color="var(--mantine-color-blue-filled)"
+              onClick={() => handleRatingOnClick(1)}
+            />
+            <Text>{upvotes - downvotes + rated}</Text>
+            <IconArrowBigDownLines
+              className={classes.voteIcons}
+              fill={rated === -1 ? 'var(--mantine-color-red-filled)' : 'none'}
+              color="var(--mantine-color-red-filled)"
+              onClick={() => handleRatingOnClick(-1)}
+            />
           </Flex>
           <Text ta="right" size="md">
             Posted: {new Date(created).toLocaleString()}
