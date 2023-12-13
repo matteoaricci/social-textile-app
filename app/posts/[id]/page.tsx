@@ -1,9 +1,14 @@
-import React from 'react'
+import { getPost } from '@/api';
+import Post from '@/components/Posts/Post';
 
-type Props = {}
+type PostParams = {
+  params: {
+    id: string;
+  };
+};
 
-export default function page({}: Props) {
-  return (
-    <div>page</div>
-  )
+export default async function page({ params }: PostParams) {
+  const { id } = params;
+  const post = await getPost(id);
+  return <Post post={post} />;
 }
