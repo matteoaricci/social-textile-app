@@ -5,28 +5,19 @@ import { Flex, Card, Stack, Text, Button } from '@mantine/core';
 import classes from './Posts.module.css';
 import { useState } from 'react';
 import { IconArrowBigUpLines, IconArrowBigDownLines } from '@tabler/icons-react';
-
-export type Post = {
-  id: string;
-  title: string;
-  body: string;
-  author: string;
-  upvotes: number;
-  downvotes: number;
-  created: Date | string;
-};
+import {Post} from '@/types'
 
 export default function Posts({ posts }: { posts: Post[] }) {
   return (
     <Stack gap="xl">
       {posts.map((post, index) => {
-        return <Post key={index} post={post} />;
+        return <PostCard key={index} post={post} />;
       })}
     </Stack>
   );
 }
 
-function Post({ post }: {post: Post}) {
+export function PostCard({ post }: {post: Post}) {
   const { title, body, author, created, upvotes, downvotes } = post;
   const [rated, setRated] = useState<number>(0);
   const handleRatingOnClick = (rating: number) => {

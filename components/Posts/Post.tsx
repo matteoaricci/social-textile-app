@@ -1,14 +1,19 @@
-'use client'
-
-import { Post } from "./Posts"
+'use client';
+import { Post } from '@/types';
+import { PostCard } from './Posts';
 
 type Props = {
-    post: Post
-}
+  post: Post;
+};
 
 export default function Post({ post }: Props) {
-    console.log(post)
-  return (
-    <div>Post</div>
-  )
+  return;
+  <>
+    <PostCard post={post} />
+  </>;
+}
+
+
+function Comment() {
+
 }
